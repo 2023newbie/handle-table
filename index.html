@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th><div>A</div></th>
+                        <th><div>B</div></th>
+                        <th><div>C</div></th>
+                        <th><div>D</div></th>
+                        <th><div>E</div></th>
+                        <th><div>F</div></th>
+                        <th><div>G</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>11</td>
+                        <td>11</td>
+                        <td>11</td>
+                        <td>11</td>
+                        <td>11</td>
+                        <td>11</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+
+<script>
+    const table = {
+        idTimeout: null,
+        formatTableHeader: () => {
+            const th1Ele = document.querySelector('table th:first-child');
+            const th2Ele = document.querySelector('table th:nth-child(2)');
+            const th1Rect = th1Ele.getBoundingClientRect();
+            th2Ele.style.left = th1Rect.width + 'px';
+        },
+        formatTableBody: () => {
+            const allRows = document.querySelectorAll('table tbody tr')
+            console.log(allRows);
+            allRows.forEach(row => {
+                const td1Ele = row.querySelector('td:first-child')
+                const td2Ele = row.querySelector('td:nth-child(2)')
+                const td1Rect = td1Ele.getBoundingClientRect();
+                td2Ele.style.left = td1Rect.width + 'px';
+            })
+        },
+        resizeWindow: function () {
+            clearTimeout(this.idTimeout)
+            this.idTimeout = setTimeout(() => {
+                this.formatTableHeader()
+                this.formatTableBody()
+            }, 300)
+        }
+    }
+    table.formatTableHeader()
+    table.formatTableBody()
+
+    window.onresize = table.resizeWindow.bind(table)
+</script>
