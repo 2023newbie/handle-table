@@ -6,7 +6,7 @@ body {
 }
 
 #wrapper {
-    width: 785px;
+    width: 50%;
     height: 200px;
     overflow: auto;
   }

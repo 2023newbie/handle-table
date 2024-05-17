@@ -208,5 +208,8 @@
     table.formatTableHeader()
     table.formatTableBody()
 
-    window.onresize = table.resizeWindow.bind(table)
+    window.onresize = () => {
+        console.log('work');
+        table.resizeWindow.bind(table)
+    }
 </script>
