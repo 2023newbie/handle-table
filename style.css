@@ -6,8 +6,8 @@ body {
 }
 
 #wrapper {
-    width: 800px;
-    height: 150px;
+    width: 785px;
+    height: 200px;
     overflow: auto;
   }
 
@@ -52,7 +52,7 @@ body {
   }
 
   table th div {
-    width: 200px;
+    width: 150px;
   }
 
   table td {
